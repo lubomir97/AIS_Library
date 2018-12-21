@@ -1,0 +1,40 @@
+﻿@model AIS_Library.ViewModels.FindUserForLibrarian
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("FindLibrarian", "ManageUser", FormMethod.Post))
+{
+
+        <div class="col-md-6">
+            <br /><br />
+            <br />
+            <br />
+
+            <h5>Введіть прізвище бібліотекаря</h5>
+            <br />
+            <h5>Початкова дата</h5>
+            <br />
+            <h5>Кінцева дата</h5>
+        </div>
+
+        <div class="col-md-6">
+            <br /><br />
+            <br />
+            <br />
+            <p>@Html.TextBoxFor(m => m.Name)</p>
+            <br />
+            <p>@Html.TextBoxFor(m => m.StartDate,"{0:dd/MM/yyyy}")</p>
+            <br />
+            <p>@Html.TextBoxFor(m => m.EndDate, "{0:dd/MM/yyyy}")</p>
+            <br /><br />
+            <p><input type="submit" , value="Знайти" /></p>
+        </div>  
+}
+
+
+
+
+

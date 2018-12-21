@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AIS_Library.Models.Users.Librarian>
+@{
+    ViewBag.Title = "FindRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Список бібліотекарів, які працюють у даному залі</h2>
+
+@Html.BeginForm("FindRoom","ManageLibrarian", FormMethod.Post)
+{ 
+    <input type="number" name="room" value=""/>
+
+    <p align="center"><input type="submit" , value="Знайти" /></p>
+
+}
+<table align="center" class="table-condensed" id="table_id">
+    <thead>
+        <tr>
+            <th>Прізвище</th>
+            <th>Ім'я</th>
+            <th>По-батькові</th>
+            <th>Адреса проживання</th>
+            <th>Мобільний телефон</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.User.Surname</td>
+                <td>@item.User.FirstName</td>
+                <td>@item.User.LastName</td>
+                <td>@item.User.Address</td>
+                <td>@item.User.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+﻿@model  IEnumerable<AIS_Library.ViewModels.PopularViewModel>
+@{
+    ViewBag.Title = "PopularBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PopularBooks</h2>
+
+
+<table align="center" class="table-condensed" id="table_id">
+    <thead>
+        <tr>
+            <th>Прізвище бібліотекаря</th>
+            <th>Кількість</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

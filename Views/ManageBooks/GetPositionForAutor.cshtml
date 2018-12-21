@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "GetPositionForAutor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetPositionForAutor</h2>
+
+@model IEnumerable<AIS_Library.Models.LibraryFund>
+
+
+<h2>Користувачі, у яких зараз знаходиться вибрана книга</h2>
+
+@using (Html.BeginForm("GetPositionForAutor", "ManageBooks", FormMethod.Post))
+{
+
+    <div class="col-md-6">
+        <h5>Введіть назву книги</h5>
+        <br />
+        <input type="text" id="SearchId" name="autor" value="" />
+
+        <p align="center"><input type="submit" , value="Знайти" /></p>
+    </div>
+}
+
+<div class="col-md-6">
+    <table align="center" class="table-condensed" id="table_id">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Room</th>
+                <th>Rack</th>
+                <th>Shelf</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ReadingRoom</td>
+                    <td>@item.RackNumber</td>
+                    <td>@item.ShelfNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br /><br />
+    <br /><br />
+    <br /><br />
+
+    <br />
+</div>
+
+

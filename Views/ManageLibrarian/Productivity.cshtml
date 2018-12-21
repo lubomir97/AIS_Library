@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<AIS_Library.ViewModels.LibrarianProductivityViewModel>
+@{
+    ViewBag.Title = "Productivity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Таблиця відображення продуктивності бібліотекарів</h2>
+@using (Html.BeginForm("Productivity", "ManageLibrarian", FormMethod.Post))
+{
+
+    <div class="col-md-6">
+        <h5></h5>
+        <br />
+        <input type="date" id="DateId" name="start" value="" />
+        <br /><br /><br /><br /><br /><br />
+        <input type="date" id="DateId" name="end" value="" />
+
+        <p align="center"><input type="submit" , value="Знайти" /></p>
+    </div>
+}
+
+<table align="center" class="table-condensed" id="table_id">
+    <thead>
+        <tr>
+            <th>Прізвище бібліотекаря</th>
+            <th>Кількість</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Number</td>
+            </tr>
+        }
+    </tbody>
+</table>
